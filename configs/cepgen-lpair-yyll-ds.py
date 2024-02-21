@@ -5,7 +5,7 @@ from Config.PDG_cfi import PDG
 
 process = cepgen.Module('lpair',
     processParameters = cepgen.Parameters(
-        mode = cepgen.ProcessMode.ElasticInelastic,
+        mode = cepgen.ProcessMode.InelasticElastic,
         pair = PDG.muon,
     ),
     inKinematics = cepgen.Parameters(
@@ -16,18 +16,12 @@ process = cepgen.Module('lpair',
         #structureFunctions = cepgen.StructureFunctions.LUXlike,
     ),
     outKinematics = cepgen.Parameters(
-        pt = (25.,),
+        pt = (20.,),
         energy = (0.,),
-        eta = (-2.5, 2.5),
-        mx = (60., 1000.),
+        eta = (-2.5,2.5),
+        mx = (1.07,1000.),
+        invmass = (60.,),
     ),
-    #--- example of a taming function definition
-    #tamingFunctions = [
-    #    cepgen.Parameters( # central dilepton mass reweighting
-    #        variable = "m(4)",
-    #        expression = "(m(4)>80.) ? exp(-(m(4)-80)/10) : 1.0"
-    #    )
-    #],
 )
 
 #--- let the user specify the events generation parameters

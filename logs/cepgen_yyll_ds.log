@@ -1,0 +1,342 @@
+               _/_/_/                    _/_/_/
+            _/         _/_/   _/_/_/   _/         _/_/   _/_/_/
+           _/       _/_/_/_/ _/    _/ _/  _/_/ _/_/_/_/ _/    _/
+          _/       _/       _/    _/ _/    _/ _/       _/    _/
+           _/_/_/   _/_/_/ _/_/_/    _/_/_/   _/_/_/  _/    _/
+                          _/
+ Copyright (c) 2014-2023  L. Forthomme <laurent.forthomme@cern.ch> (*)
+
+ Please use https://doi.org/10.1016/j.cpc.2021.108225 for citations.
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+ (*) with contributions from:
+  - J. Vermaseren, the ZEUS offline group, M. GVH, D. Bocian, O. Duenger,
+    N. Schul, and others (LPAIR matrix element)
+  - M. Luszczak, W. Schafer, A. Szczurek (kt-factorised matrix elements)
+
+[32;1mInfo[0m:	CepGen 1.1.0 (e6e1add(master)) initialised with 10 add-ons:
+	{CepGenAPFEL, CepGenBoost, CepGenHepMC2, CepGenHepMC3, CepGenLHAPDF, CepGenPythia8, CepGenPython, CepGenRivet, CepGenRoot, CepGenProcesses}.
+	Greetings!
+[32;1mInfo[0m:	Interfacing module initialised for HepMC version 3.02.06.
+
+_/¯ RUN INFORMATION ¯\_____________________________________________________________________
+
+Process to generate:
+            [;1mpptoff[0m module <- [34;3mγγ → f⁺f¯[0m with parameters:
+    [;4malphaEM[0m = [;1mfixed[0m module <- [34;3melectromagnetic coupling evolution algorithm[0m with parameters:
+      [;4mvalue[0m = 0.007297 <- [34;3mConstant value for alpha(EM)[0m
+    [;4malphaS[0m = [;1mpegasus[0m module <- [34;3mstrong coupling evolution algorithm[0m with parameters:
+      [;4masmur[0m = 0.491280
+      [;4mfr2[0m = 1.000000
+      [;4miord[0m = 2 <- [34;3mEvolution order[0m
+      [;4mmur[0m = 1.000000
+    [;4mhasEvent[0m = true <- [34;3mdoes the process carry an event definition[0m
+    [;4mkinematics[0m = [;3;4mParameters[0m collection:
+      [;4menergy[0m = 0|above 0
+      [;4meta[0m = -2.5, 2.5|-2.5 to 2.5
+      [;4minvmass[0m = 60|above 60
+      [;4mmode[0m = 3
+      [;4mmx[0m = 1.07, 1000|1.07 to 1000
+      [;4mpt[0m = 20|above 20
+      [;4mpz[0m = 6500, 6500|6500 to 6500
+      [;4mstructureFunctions[0m = [;1m11[0m module with parameters:
+        [;4msigmaRatio[0m = 4
+    [;4mktFactorised[0m = true
+    [;4mmethod[0m = 1 <- [34;3mMatrix element computation method (0 = on-shell, 1 = off-shell)[0m
+    [;4mmode[0m = 3
+    [;4moffShellParameters[0m = [;3;4mParameters[0m collection:
+      [;4mmat1[0m = 1 <- [34;3msymmetry factor for the first incoming photon[0m
+      [;4mmat2[0m = 1 <- [34;3msymmetry factor for the second incoming photon[0m
+      [;4mtermLL[0m = 1 <- [34;3mfully longitudinal relative weight[0m
+      [;4mtermLT[0m = 1 <- [34;3mcross-polarisation relative weight[0m
+      [;4mtermTT[0m = 1 <- [34;3mfully transverse relative weight[0m
+      [;4mtermtt[0m = 1 <- [34;3mfully transverse relative weight[0m
+    [;4mpair[0m = Parameters(pdgid=int(13)) <- [34;3mtype of central particles emitted[0m
+
+Output modules
+	*) [;1mhepmc[0m module <- [34;3mHepMC3 ASCII file output module[0m with parameters:
+    [;4mfilename[0m = "test.hepmc" <- [34;3mOutput filename[0m
+	*) [;1mdump[0m module <- [34;3mSimple text-based event dumper[0m with parameters:
+    [;4mfilename[0m = "" <- [34;3mOutput filename[0m
+    [;4mprintEvery[0m = 10000 <- [34;3mPeriod at which events are dumped[0m
+    [;4msaveBanner[0m = true <- [34;3mSave boilerplate in output file?[0m
+
+[;1m Integration/generation parameters [0m----------------------------------------------------
+
+Integration                      [;1mVegas[0m
+Event generation?                [32mtrue[0m
+Number of events to generate     [;1m100000[0m
+Generator worker                 Module("grid_optimised")
+Number of threads                2
+Number of points to try per bin  100
+Verbosity level                  Infos
+
+_/¯ EVENTS KINEMATICS ¯\___________________________________________________________________
+
+Incoming particles               p (6500 GeV/c) inelastic,
+                                 p (-6500 GeV/c) elastic
+C.m. energy (GeV)                13000
+Form factors                     Module("StandardDipole", pdgId=ulong(2212), scale=float(0.710000))
+Structure functions              Module(11, sigmaRatio=int(4))
+
+[;1m Incoming partons [0m---------------------------------------------------------------------
+
+Virtuality (GeV^2)               0 to 100000
+
+[;1m Outgoing central system [0m--------------------------------------------------------------
+
+Single particle pt (GeV/c)       above 20
+System mass (GeV/c^2)            above 60
+Single particle eta              -2.5 to 2.5
+Single particle energy (GeV)     above 0
+
+[;1m Proton / remnants [0m--------------------------------------------------------------------
+
+Diffractive mass (GeV/c^2)       1.07 to 1000
+
+__________________________________________________________________________________________
+
+[32;1mInfo[0m:	Starting the computation of the process cross-section.
+[32;1mInfo[0m:	Generator will use a Vegas-type integrator.
+[32;1mInfo[0m:	PEGASUS alpha(S) evolution algorithm initialised with parameters:
+	order: 2, fr2: 1, mur: 1, asmur: 0.49128
+	quark masses (GeV): charm: 1.27, bottom: 4.18, top: 172.5.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 329.115/329.117.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -2.98265e-08 / y = 10.7546 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -2.98265e-08 / y = 10.7546 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -2.97424e-10 / y = 10.0334 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -2.97424e-10 / y = 10.0334 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	Finished the Vegas warm-up.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 0.881836/0.880355.
+	>> at call 1: average =   0.195520   sigma =   0.004963   chi2 = 2.006.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -4.32088e-06 / y = 10.1963 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -4.32088e-06 / y = 10.1963 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+	>> at call 2: average =   0.205094   sigma =   0.006539   chi2 = 0.849.
+[32;1mInfo[0m:	Total cross section: 0.205094 +/- 0.00653942 pb.
+#******* Sample generated with CepGen 1.1.0 *******
+# Process: pptoff (inelastic/elastic)
+# Structure functions: Module(11, sigmaRatio=int(4))
+#*** Incoming state *******************************
+# Virtuality (GeV^2): 0 to 100000
+#*** Central system *******************************
+# Single particle pt (GeV/c): above 20
+# System mass (GeV/c^2): above 60
+# Single particle eta: -2.5 to 2.5
+# Single particle energy (GeV): above 0
+#*** Remnants states ******************************
+# Diffractive mass (GeV/c^2): 1.07 to 1000
+#**************************************************
+[32;1mInfo[0m:	Preparing the grid (100 points/bin) for the generation of unweighted events.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 2.5/0.880355.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -3.82246e-08 / y = 10.1693 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -3.82246e-08 / y = 10.1693 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -7.57771e-08 / y = 10.0091 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -7.57771e-08 / y = 10.0091 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -9.06906e-08 / y = 10.1376 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -9.06906e-08 / y = 10.1376 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	Finished the grid preparation. Now launching the unweighted event production.
+[32;1mInfo[0m:	100000 events will be generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -2.378420e-01  2.367636e-01  1.295571e+04  4.429003e+01  12955.63417
+  3	+22        gamma  	0	parton 2     -1	     1  6.270763e-02  1.412115e-02 -1.290986e+04  9.014328e+01  12909.54200
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -1.751344e-01  2.508847e-01  4.585316e+01  1.344333e+02    126.37132
+  5	+2212      p      	1	o.beam 1      3	     0  2.378420e-01 -2.367636e-01 -6.455710e+03  6.455710e+03      1.40564
+  6	+2212      p      	1	o.beam 2      1	     1 -6.270763e-02 -1.412115e-02  6.409857e+03  6.409857e+03      0.93827
+  7	+13        mu     	1	central       2	     4 -3.799329e+01  4.953084e+01 -1.158826e+01  6.349089e+01      0.10566
+  8	-13        mu     	-1	central       2	     4  3.781815e+01 -4.927996e+01 -3.426494e+01  7.094240e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300000e+04
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 1053.67/1053.68.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 421378/421378.
+[32;1mInfo[0m:	10000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -1.537149e-01 -9.774476e-01  1.291843e+04  8.157209e+01  12918.17017
+  3	+22        gamma  	0	parton 2     -1	     1  4.739346e-03  6.421241e-02 -1.292032e+04  7.967705e+01  12920.07727
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -1.489756e-01 -9.132352e-01 -1.895281e+00  1.612491e+02    161.23534
+  5	+2212      p      	1	o.beam 1      3	     0  1.537149e-01  9.774476e-01 -6.418428e+03  6.418428e+03      1.73399
+  6	+2212      p      	1	o.beam 2      1	     1 -4.739346e-03 -6.421241e-02  6.420323e+03  6.420323e+03      0.93827
+  7	-13        mu     	-1	central       2	     4 -4.588213e+00  2.791800e+01 -7.438366e+01  7.958270e+01      0.10566
+  8	+13        mu     	1	central       2	     4  4.439238e+00 -2.883123e+01  7.627882e+01  8.166649e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  3.790442e+00  1.300000e+04
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -3.74961e-08 / y = 10.3384 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -3.74961e-08 / y = 10.3384 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	20000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -2.846341e+00 -5.016440e+00  1.297077e+04  2.918612e+01  12970.73478
+  3	+22        gamma  	0	parton 2     -1	     1  4.155908e-02 -1.421362e-01 -1.286359e+04  1.364116e+02  12862.86505
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -2.804782e+00 -5.158576e+00  1.071780e+02  1.655978e+02    126.09925
+  5	+2212      p      	1	o.beam 1      3	     0  2.846341e+00  5.016440e+00 -6.470766e+03  6.470814e+03     24.14516
+  6	+2212      p      	1	o.beam 2      1	     1 -4.155908e-02  1.421362e-01  6.363588e+03  6.363588e+03      0.93827
+  7	-13        mu     	-1	central       2	     4 -1.750638e+01  3.817614e+01 -1.119944e+02  1.196104e+02      0.10566
+  8	+13        mu     	1	central       2	     4  1.470160e+01 -4.333472e+01  4.792681e+00  4.601104e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300002e+04
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -7.41317e-07 / y = 10.2769 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -7.41317e-07 / y = 10.2769 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	30000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0  5.668742e+00  1.647505e+00  1.298836e+04  1.099644e+01  12988.35823
+  3	+22        gamma  	0	parton 2     -1	     1  2.244202e-02  8.813621e-03 -1.284654e+04  1.534617e+02  12845.62170
+  4		   gamma/gamma	0	hard pr.     -2	   2+3  5.691184e+00  1.656319e+00  1.418232e+02  1.644581e+02     83.05126
+  5	+2212      p      	1	o.beam 1      3	     0 -5.668742e+00 -1.647505e+00 -6.488362e+03  6.489004e+03     91.09124
+  6	+2212      p      	1	o.beam 2      1	     1 -2.244202e-02 -8.813621e-03  6.346538e+03  6.346538e+03      0.93827
+  7	+13        mu     	1	central       2	     4 -6.862501e+00 -3.021812e+01 -1.201197e+02  1.240523e+02      0.10566
+  8	-13        mu     	-1	central       2	     4  1.255369e+01  3.187443e+01 -2.202452e+01  4.072671e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300032e+04
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 4064.09/4064.1.
+[32;1mInfo[0m:	40000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -4.520442e-01  4.925825e-01  1.291495e+04  8.504494e+01  12914.67488
+  3	+22        gamma  	0	parton 2     -1	     1  2.922655e-01  1.080415e-01 -1.297223e+04  2.777336e+01  12972.19691
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -1.597787e-01  6.006240e-01 -5.727176e+01  1.128183e+02     97.19839
+  5	+2212      p      	1	o.beam 1      3	     0  4.520442e-01 -4.925825e-01 -6.414955e+03  6.414955e+03      1.68138
+  6	+2212      p      	1	o.beam 2      1	     1 -2.922655e-01 -1.080415e-01  6.472227e+03  6.472227e+03      0.93827
+  7	+13        mu     	1	central       2	     4 -4.034292e+00  2.249286e+01  7.869362e+01  8.194450e+01      0.10566
+  8	-13        mu     	-1	central       2	     4  3.874514e+00 -2.189223e+01 -2.142195e+01  3.087382e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  1.145434e+02  1.300000e+04
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -3.30753e-07 / y = 10.7167 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -3.30753e-07 / y = 10.7167 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -3.35434e-06 / y = 10.0943 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -3.35434e-06 / y = 10.0943 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 2491.88/2491.94.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -4.76634e-07 / y = 10.0268 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -4.76634e-07 / y = 10.0268 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -4.93158e-07 / y = 10.0246 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -4.93158e-07 / y = 10.0246 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	50000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -9.293119e+00  4.244996e+00  1.298391e+04  1.499593e+01  12983.90951
+  3	+22        gamma  	0	parton 2     -1	     1 -2.164616e-02 -1.418235e-01 -1.292000e+04  8.000075e+01  12919.75156
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -9.314765e+00  4.103172e+00  6.391490e+01  9.499668e+01     69.53886
+  5	+2212      p      	1	o.beam 1      3	     0  9.293119e+00 -4.244996e+00 -6.483914e+03  6.485004e+03    118.45516
+  6	+2212      p      	1	o.beam 2      1	     1  2.164616e-02  1.418235e-01  6.419999e+03  6.419999e+03      0.93827
+  7	+13        mu     	1	central       2	     4 -1.143368e+01 -2.949903e+01 -1.335093e+01  3.433919e+01      0.10566
+  8	-13        mu     	-1	central       2	     4  2.118911e+00  3.360220e+01 -5.110893e+01  6.120238e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300055e+04
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 171.104/171.106.
+[32;1mInfo[0m:	60000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -1.876985e+00  5.007475e-01  1.298028e+04  1.971828e+01  12980.26235
+  3	+22        gamma  	0	parton 2     -1	     1  1.980433e-01 -4.677154e-01 -1.294550e+04  5.449950e+01  12945.38577
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -1.678942e+00  3.303205e-02  3.477671e+01  7.421778e+01     65.54418
+  5	+2212      p      	1	o.beam 1      3	     0  1.876985e+00 -5.007475e-01 -6.480277e+03  6.480282e+03      7.47929
+  6	+2212      p      	1	o.beam 2      1	     1 -1.980433e-01  4.677154e-01  6.445500e+03  6.445501e+03      0.93827
+  7	-13        mu     	-1	central       2	     4  1.702342e+00 -2.086298e+01  1.109969e+01  2.369338e+01      0.10566
+  8	+13        mu     	1	central       2	     4 -3.381284e+00  2.089601e+01 -4.587865e+01  5.052661e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300000e+04
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -1.5736e-08 / y = 10.0239 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -1.5736e-08 / y = 10.0239 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -1.2801e-05 / y = 10.2684 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -1.2801e-05 / y = 10.2684 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 0.867188/0.880355.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -1.35789e-05 / y = 10.2147 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -1.35789e-05 / y = 10.2147 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -2.64517e-08 / y = 10.2279 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -2.64517e-08 / y = 10.2279 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	70000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0  3.459068e+00  2.371040e+00  1.294373e+04  5.588933e+01  12943.60742
+  3	+22        gamma  	0	parton 2     -1	     1 -1.156037e-01 -1.687327e-01 -1.294918e+04  5.082163e+01  12949.07864
+  4		   gamma/gamma	0	hard pr.     -2	   2+3  3.343465e+00  2.202308e+00 -5.450966e+00  1.067110e+02    106.49642
+  5	+2212      p      	1	o.beam 1      3	     0 -3.459068e+00 -2.371040e+00 -6.443727e+03  6.444111e+03     70.16229
+  6	+2212      p      	1	o.beam 2      1	     1  1.156037e-01  1.687327e-01  6.449178e+03  6.449178e+03      0.93827
+  7	+13        mu     	1	central       2	     4  4.069561e+01  7.226211e+00 -3.322977e+01  5.303376e+01      0.10566
+  8	-13        mu     	-1	central       2	     4 -3.735214e+01 -5.023903e+00  3.848911e+01  5.386877e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  1.071030e+01  1.300019e+04
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -1.64058e-05 / y = 10.0255 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -1.64058e-05 / y = 10.0255 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -7.33365e-08 / y = 10.0645 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -7.33365e-08 / y = 10.0645 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -1.51777e-07 / y = 10.7671 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -1.51777e-07 / y = 10.7671 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 0.5/0.880355.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 0.878906/0.880355.
+[32;1mInfo[0m:	80000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -1.225405e+01  1.969448e+01  1.299149e+04 -1.286535e-01  12991.51079
+  3	+22        gamma  	0	parton 2     -1	     1 -9.464516e-02 -7.931704e-02 -1.273534e+04  2.646597e+02  12732.59002
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -1.234869e+01  1.961517e+01  2.561498e+02  2.645310e+02     61.86043
+  5	+2212      p      	1	o.beam 1      3	     0  1.225405e+01 -1.969448e+01 -6.491490e+03  6.500129e+03    334.20322
+  6	+2212      p      	1	o.beam 2      1	     1  9.464516e-02  7.931704e-02  6.235340e+03  6.235340e+03      0.93827
+  7	-13        mu     	-1	central       2	     4 -3.685922e+01  7.177498e+00 -1.207880e+02  1.264906e+02      0.10566
+  8	+13        mu     	1	central       2	     4  2.451053e+01  1.243767e+01 -1.396811e+02  1.423597e+02      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300432e+04
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid X system squared mass: 42035.9/42035.9.
+[34;1mWarning[0m [;2;4mvirtual double cepgen::proc::Process2to4::computeFactorisedMatrixElement()[0m: Invalid Y system squared mass: 0.84375/0.880355.
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -7.95614e-07 / y = 10.356 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -7.95614e-07 / y = 10.356 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=0) for x = -5.45056e-07 / y = 10.095 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[34;1mWarning[0m [;2;4mcepgen::GridHandler<D, N>::values_t cepgen::GridHandler<D, N>::eval(cepgen::GridHandler<D, N>::coord_t) const [with long unsigned int D = 2; long unsigned int N = 2; cepgen::GridHandler<D, N>::values_t = std::array<double, 2>; cepgen::GridHandler<D, N>::coord_t = std::vector<double>][0m: Failed to evaluate the value (N=1) for x = -5.45056e-07 / y = 10.095 in grid with boundaries {-9 to 0, 0 to 10}. GSL error: input domain error
+[32;1mInfo[0m:	90000 events generated.
+Event content:
+ Id	PDG id	   Name		Charge	Role	 Status	Mother	px            py            pz            E      	 M         
+ --	------	   ----		------	----	 ------	------	----GeV/c---  ----GeV/c---  ----GeV/c---  ----GeV/c---	 --GeV/c²--
+  0	+2212      p      	1	i.beam 1     -9	        0.000000e+00  0.000000e+00  6.500000e+03  6.500000e+03      0.93827
+  1	+2212      p      	1	i.beam 2     -9	        0.000000e+00  0.000000e+00 -6.500000e+03  6.500000e+03      0.93827
+  2	+22        gamma  	0	parton 1     -1	     0 -2.973041e+00 -5.285970e-01  1.297649e+04  2.346953e+01  12976.47083
+  3	+22        gamma  	0	parton 2     -1	     1 -1.450246e-02  1.688749e-01 -1.293706e+04  6.293921e+01  12936.90769
+  4		   gamma/gamma	0	hard pr.     -2	   2+3 -2.987543e+00 -3.597221e-01  3.943091e+01  8.640873e+01     76.82850
+  5	+2212      p      	1	o.beam 1      3	     0  2.973041e+00  5.285970e-01 -6.476492e+03  6.476531e+03     22.22577
+  6	+2212      p      	1	o.beam 2      1	     1  1.450246e-02 -1.688749e-01  6.437061e+03  6.437061e+03      0.93827
+  7	+13        mu     	1	central       2	     4 -1.610175e+00 -2.465580e+01 -5.307048e+01  5.854048e+01      0.10566
+  8	-13        mu     	-1	central       2	     4 -1.377368e+00  2.429607e+01  1.362019e+01  2.788758e+01      0.10566
+ ----------------------------------------------------------------------------------------------------------------------------------
+							Balance 0.000000e+00  0.000000e+00  0.000000e+00  1.300002e+04
+[32;1mInfo[0m:	100000 events generated.
+[32;1mInfo[0m:	100000 events generated in 1833.84 s (18.3384 ms/event).
+	Equivalent luminosity: 487580 pb^-1.

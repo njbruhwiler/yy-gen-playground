@@ -18,8 +18,9 @@ process = cepgen.Module('pptoff',
     outKinematics = cepgen.Parameters(
         pt = (20.,),
         energy = (0.,),
-        eta = (-2.5, 2.5),
-        mx = (60.,),
+        eta = (-2.5,2.5),
+        mx = (1.07,1000.),
+        invmass = (60.,),
     ),
 )
 
