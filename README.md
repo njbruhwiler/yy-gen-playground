@@ -13,13 +13,13 @@ This container was developed in the context of the [Workshop on the modeling of 
 Clone this repository locally, download the docker image and create a `run` folder to easily share the work across containers:
 ```
 git clone https://github.com/spg-berkeleylab/yy-gen-playground.git
-docker pull spagan/yy-gen-playground:0.6
+docker pull spagan/yy-gen-playground:0.9
 mkdir run
 ```
 
 To create a new container based on this image you can simply run:
 ```bash
-docker run -it -v ${PWD}/yy-gen-playground:/work/yy-gen-playground -v ${PWD}/run:/work/run -- spagan/yy-gen-playground:0.8 /bin/bash
+docker run -it -v ${PWD}/yy-gen-playground:/work/yy-gen-playground -v ${PWD}/run:/work/run -- spagan/yy-gen-playground:0.9 /bin/bash
 ```
 
 Once the container has started, you need to set up the specific version of versioned-software. Edit `${HOME}/yy-gen-playground/scripts/install-versioned-sw.sh` if you need to adjust the version of the software you'd like to have available. Then execute the script
@@ -126,8 +126,8 @@ The *versioned software* is pre-compiled and available in the `/usr/local/src/` 
 | Type | Name | Versions | Location  |
 |------|------|----------|-----------|
 | Generator | SuperChic | 4.12(*), 4.2 | `${SUPERCHIC_DIR}`|
-| Generator | Madgraph  | 2.9.5(*), 3.5.0 | `${MADGRAPH_DIR}` |
-| Parton Shower | Pythia8 | 8.245(*), 8.306, 8.307, 8.309 | `${PYTHIA_DIR}` |
+| Generator | Madgraph  | 2.9.5(*), 3.5.1 | `${MADGRAPH_DIR}` |
+| Parton Shower | Pythia8 | 8.245, 8.306, 8.310(*) | `${PYTHIA_DIR}` |
 | Parton Shower | Herwig  | 7.3.0 | `herwigcollaboration/herwig-7.3:7.3.0` image |
 | Generator     | CepGen  | 1.1.0(*)  | `${CEPGEN_DIR}` |
 | Generator     | Sherpa  | master(*) | `${SHERPA_DIR}` |
@@ -187,7 +187,11 @@ If you need to modify the container, edit the `Dockerfile` and rebuild the conta
 docker build -t yy-gen-playground .
 ```
 
-The file `Dockerfile-root` is made to build the image with only `root` user available.
+To build an image with only the `root` user available (useful in some MacOS setup, where this user is already mapped to the user starting docker), you can build the image as follows:
+```bash
+docker build --build-arg MAIN_USER=root -t yy-gen-playground .
+```
+
 
 ## Available pre-generated samples
 A few samples have been already generated (either unshowered or showered) for easing comparisons.
